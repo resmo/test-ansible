@@ -1,0 +1,9 @@
+---
+- hosts: tests
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: remove VMs on cloudstack
+    cs_instance:
+      display_name: "{{ inventory_hostname }}"
+      state: absent

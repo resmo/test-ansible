@@ -1,0 +1,54 @@
+---
+- hosts: tests
+  vars:
+    core_repo: ansible
+    core_branch: devel
+    extra_repo: ansible
+    extra_branch: devel
+    ansible_repo: ansible
+    ansible_branch: devel
+    make_target: ""
+  tasks:
+  - shell: rm -fr /var/lib/apt/lists/*
+    changed_when: false
+
+  - apt: pkg={{ item }} update_cache=yes state=latest
+    with_items:
+      - git
+      - subversion
+      - mercurial
+      - ruby
+      - python
+      - python-dev
+      - python-pip
+      - make
+      - build-essential
+    when: ansible_os_family == "Debian"
+
+  - pip: name={{ item }}
+    with_items:
+      - nose
+      - MagicMock
+      - jinja2
+      - paramiko
+      - httplib2
+      - tox
+      - python-systemd
+      - PyYAML
+
+  - pip: name={{ item }} state=latest
+    with_items:
+      - pycrypto
+
+  - git:
+      repo: https://github.com/{{ ansible_repo }}/ansible.git
+      version: "{{ ansible_branch }}"
+      dest: /tmp/ansible
+      accept_hostkey: yes
+      force: no
+
+  - local_action:
+      module: template
+      src: run_tests.sh.j2
+      dest: ./run-tests-{{ inventory_hostname }}.sh
+      mode: 0755

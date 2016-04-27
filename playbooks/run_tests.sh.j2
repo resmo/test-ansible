@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ssh root@{{ ansible_ssh_host }} <<-'ENDSSH'
+#commands to run on remote host
+cd /tmp/ansible
+source ./hacking/env-setup
+cd test/integration
+make
+ENDSSH
