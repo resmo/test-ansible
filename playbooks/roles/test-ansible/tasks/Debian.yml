@@ -1,0 +1,7 @@
+---
+- shell: rm -fr /var/lib/apt/lists/*
+  changed_when: false
+
+- apt: pkg={{ item }} update_cache=yes state=latest
+  with_items: pkgs
+  when: ansible_os_family == "Debian"

@@ -1,0 +1,7 @@
+---
+core_repo: ansible
+core_branch: devel
+extra_repo: ansible
+extra_branch: devel
+ansible_repo: ansible
+ansible_branch: devel

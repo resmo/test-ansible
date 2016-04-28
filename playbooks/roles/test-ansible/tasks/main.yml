@@ -1,0 +1,41 @@
+---
+- include_vars: "{{ item }}"
+  with_first_found:
+   - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+   - "{{ ansible_distribution }}.yml"
+   - "{{ ansible_os_family }}.yml"
+   - "main.yml"
+
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: RedHat.yml
+  when: ansible_os_family == "RedHat"
+
+- pip: name={{ item }}
+  with_items:
+    - nose
+    - MagicMock
+    - jinja2
+    - paramiko
+    - httplib2
+    - tox
+    - python-systemd
+    - PyYAML
+
+- pip: name={{ item }} state=latest
+  with_items:
+    - pycrypto
+
+- git:
+    repo: https://github.com/{{ ansible_repo }}/ansible.git
+    version: "{{ ansible_branch }}"
+    dest: /tmp/ansible
+    accept_hostkey: yes
+    force: no
+
+- local_action:
+    module: template
+    src: run_tests.sh.j2
+    dest: ./run-tests-{{ inventory_hostname }}.sh
+    mode: 0755

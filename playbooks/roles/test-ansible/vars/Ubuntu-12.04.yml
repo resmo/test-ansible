@@ -1,0 +1,11 @@
+---
+pkgs:
+  - git
+  - subversion
+  - mercurial
+  - rubygems
+  - python
+  - python-dev
+  - python-pip
+  - make
+  - build-essential
