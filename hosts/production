@@ -6,6 +6,6 @@ test-ubuntu-1204 cs_template="Linux Ubuntu 12.04 LTS 64-bit 10G Disk (2015-09-29
 test-ubuntu-1404 cs_template="Linux Ubuntu 14.04 LTS 64-bit 10G Disk (2015-04-22-c2595b)"
 test-ubuntu-1604 cs_template="Linux Ubuntu 16.04 LTS 64-bit 10G Disk (2016-04-20-d6cdbb)"
 test-debian-7 cs_template="Linux Debian 7 64-bit 10GB Disk"
-#test-debian-8 cs_template="Linux Debian 8 64-bit 10G Disk (2016-04-02-085125)"
+test-debian-8 cs_template="Linux Debian 8 64-bit 10G Disk (2016-04-02-085125)"
 #test-centos-6 cs_template="Linux CentOS 6.6 64-bit 10G Disk (2014-12-01-bac8e0)"
 
