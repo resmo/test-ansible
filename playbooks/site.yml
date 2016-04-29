@@ -1,3 +1,4 @@
 ---
+- include: env-down.yml
 - include: env.yml
 - include: setup.yml
