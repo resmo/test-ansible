@@ -10,3 +10,4 @@ pkgs:
   - make
   - build-essential
   - gawk
+  - libffi-dev

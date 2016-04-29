@@ -21,11 +21,11 @@
     - tox
     - python-systemd
     - PyYAML
+#    - paramiko
 
 - pip: name={{ item }} state=latest
   with_items:
     - pycrypto
-    - paramiko
 
 - git:
     repo: https://github.com/{{ ansible_repo }}/ansible.git
