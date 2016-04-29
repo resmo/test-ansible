@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@{{ ansible_ssh_host }} <<-'ENDSSH'
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@{{ ansible_ssh_host }} <<-'ENDSSH'
 #commands to run on remote host
 cd /tmp/ansible
 source ./hacking/env-setup
