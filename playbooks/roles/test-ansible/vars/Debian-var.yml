@@ -11,3 +11,4 @@ pkgs:
   - build-essential
   - gawk
   - libffi-dev
+  - sudo
