@@ -17,7 +17,6 @@
     - nose
     - MagicMock
     - jinja2
-    - paramiko
     - httplib2
     - tox
     - python-systemd
@@ -26,6 +25,7 @@
 - pip: name={{ item }} state=latest
   with_items:
     - pycrypto
+    - paramiko
 
 - git:
     repo: https://github.com/{{ ansible_repo }}/ansible.git
