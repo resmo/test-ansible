@@ -9,3 +9,4 @@ pkgs:
   - python-pip
   - make
   - build-essential
+  - gawk
