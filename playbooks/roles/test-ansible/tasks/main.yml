@@ -27,6 +27,8 @@
   with_items:
     - pycrypto
 
+- user: name=nobody
+
 - git:
     repo: https://github.com/{{ ansible_repo }}/ansible.git
     version: "{{ ansible_branch }}"
