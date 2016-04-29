@@ -4,6 +4,7 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@{{ ansible_
 #commands to run on remote host
 cd /tmp/ansible
 source ./hacking/env-setup
+export ANSIBLE_LIBRARY=/tmp/ansible-core:/tmp/ansible-extra
 cd test/integration
 make
 ENDSSH

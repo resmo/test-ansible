@@ -36,6 +36,22 @@
     accept_hostkey: yes
     force: no
 
+- git:
+    repo: https://github.com/{{ extra_repo }}/ansible-modules-core.git
+    version: "{{ core_branch }}"
+    dest: /tmp/ansible-core
+    accept_hostkey: yes
+    force: no
+  when: core_repo != "ansible"
+
+- git:
+    repo: https://github.com/{{ extra_repo }}/ansible-modules-extra.git
+    version: "{{ extra_branch }}"
+    dest: /tmp/ansible-extra
+    accept_hostkey: yes
+    force: no
+  when: extra_repo != "ansible"
+
 - local_action:
     module: template
     src: run_tests.sh.j2
