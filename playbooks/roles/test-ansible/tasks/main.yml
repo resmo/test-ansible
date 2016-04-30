@@ -37,7 +37,7 @@
     force: no
 
 - git:
-    repo: https://github.com/{{ extra_repo }}/ansible-modules-core.git
+    repo: https://github.com/{{ core_repo }}/ansible-modules-core.git
     version: "{{ core_branch }}"
     dest: /tmp/ansible-core
     accept_hostkey: yes
